@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reactivity with ES6 Proxy</title>
+</head>
+<style>
+* {
+  box-sizing: border-box;
+}
+html, body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+.page {
+  width: 100%;
+  max-width: 960px;
+  margin: 50px auto;
+}
+
+
+.products {
+  width: 100%;
+  height: 100px;
+  display: block;
+  padding: 1em;
+  border: 1px solid #f9f9f9;
+}
+.product-table {
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+.product-table-title {
+  margin: 0 0 20px 0;
+  font-size: 16px;
+  font-weight: normal;
+}
+.product-table-head,
+.product-table-body {
+  display: grid;
+  grid-template-columns: minmax(50px, 120px) 1fr 1fr 1fr 1fr 1fr;
+}
+.product-table-head {
+  padding: 10px 0;
+  font-weight: bold;
+  border-bottom: 1px solid #d0d0d0;
+}
+.product-table-body span {
+  padding: 10px 0;
+  display: flex;
+  border-bottom: 1px solid #e0e0e0;
+}
+.button-buy,
+.button-sell {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  border: none;
+  border-width: 1px;
+}
+.button-buy {
+  background-color: #48c448;
+}
+.button-buy:hover {
+  background-color: #34ac34;
+}
+.button-sell {
+  background-color: #ee4e4e;
+}
+.button-sell:hover {
+  background-color: #cb3f3f;
+}
+
+#event-list {
+  display: block;
+  padding: 10px;
+  font-size: 12px;
+  background-color: #f0f0f0;
+}
+#event-list p {
+  margin: 0 0 5px 0;
+}
+</style>
+
+
+<body>
+    <div class="page">
+        <div class="product-table">
+            <h3 class="product-table-title">Products Table</h3>
+            <div class="product-table-head">
+                <span>#</span>
+                <span>Name</span>
+                <span>Size</span>
+                <span>Price</span>
+                <span>Stock</span>
+                <span>Buy/Sell</span>
+            </div>
+            <div class="product-table-body" id="products"></div>
+        </div>
+
+
+        <p>Proxy Events: </p>
+        <div id="event-list"></div>
+
+    </div>
+    <script type="module" src="./js/App.js"></script>
+</body>
+</html>
