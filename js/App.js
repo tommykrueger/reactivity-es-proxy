@@ -6,11 +6,11 @@ class App {
     constructor() {
 
         // init product model with data
-        let product = new Product(ProductData);
+        this.product = new Product(ProductData);
 
         // register the product view to the view model
-        product.registerView(document.getElementById('products'));
-        product.init();
+        this.product.registerView(document.getElementById('products'));
+        this.product.init();
 
         let eventList = document.getElementById('event-list');
 

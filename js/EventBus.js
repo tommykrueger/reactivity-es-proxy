@@ -35,7 +35,7 @@ class EventBus {
     trigger(eventName, arg) {
         try {
             arg = arg || {};
-            let eventListeners = this.eventList[eventName] || [];
+            const eventListeners = this.eventList[eventName] || [];
             eventListeners.forEach((listener) => {
                 listener.callback(arg);
             });

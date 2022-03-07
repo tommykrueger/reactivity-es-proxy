@@ -50,6 +50,13 @@ export default class Product {
             },
             set(target, property, value) {
                 const oldValue = target[property];
+
+                if (property === 'stock') {
+                    if (!Number.isInteger(value)) {
+                        throw new TypeError('The stock value is not an integer');
+                    }
+                }
+
                 target[property] = value;
                 EventBus.trigger('PROPERTY_SET', {
                     data: {
